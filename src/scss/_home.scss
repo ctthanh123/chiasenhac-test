@@ -1,0 +1,461 @@
+@import 'variables';
+@import 'custom';
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0px 15px;
+}
+
+@font-face {
+    font-family:"SFProDisplay-Italic";
+    src:url("/node_modules/FontsFree-Net-SFProDisplay-RegularItalic.ttf") format("woff"),
+    url("/node_modules/FontsFree-Net-SFProDisplay-RegularItalic.ttf") format("opentype"),
+    url("/node_modules/FontsFree-Net-SFProDisplay-RegularItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family:"SFProDisplay-Regular";
+    src:url("/node_modules/FontsFree-Net-SFProDisplay-Regular.ttf") format("woff"),
+    url("/node_modules/FontsFree-Net-SFProDisplay-Regular.ttf") format("opentype"),
+    url("/node_modules/FontsFree-Net-SFProDisplay-Regular.ttf") format("truetype");
+}
+
+.header {
+    &-top {
+        padding: 10px 0px;
+        background: #2c2c2c;
+        .container {
+            .row {
+                .logo {
+                    padding-left: 15px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                form { 
+                    margin-left: 10px;             
+                    img {
+                        margin-top: 4px;
+                        width: 100%;
+                    }
+                    .nhap {
+                        position: relative;
+                        margin-left: 10px;
+                        input {
+                            padding: 8px 12px 8px 40px;
+                            min-width: 575px;
+                            background: #f6f6f6;
+                            color: #495057;
+                            font-size: 13px;
+                            border: 1px solid #ced4da;
+                            border-radius: 5px;
+                            font-family: 'SFProDisplay-Italic';
+                            font-weight: 400;
+                        }
+                        .fa-search {
+                            position: absolute;
+                            top: 10px;
+                            left: 17px;
+                            font-size: 14px;
+                            color: #b6b6b6;
+                        }
+                    }
+                    .fa-history {
+                        color: #ffffff;
+                        font-size: 20px;
+                        margin-left: 28px;
+                    }
+                }
+                .option {   
+                    .xxx {
+                        color: #ffffff;
+                        margin: 0px 15px;
+                    }             
+                    a {
+                        font-size: 13px;
+                        color: #ffffff;
+                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                        transition: 0.6s;
+                        &:hover {
+                            color: rgb(177, 136, 214);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+.hihi {
+    background: #ededed;
+    height: 50px;
+    //padding: 15px 0px;
+    position: relative;
+    z-index: 999999999999999;
+    .header-bottom {
+        position: relative; //đây
+        top: 15px; 
+        .container {   
+            > ul.menu {        
+                > li {
+                    margin-right: 48px;
+                    &:hover {
+                        > ul.dropdown {
+                            display: block;
+                        }
+                    }
+                    a {
+                       
+                        padding: 18px 0px;
+                        font-size: 14px;
+                        font-family: 'SFProDisplay-Regular';
+                        font-weight: 400;
+                        color: #333333;
+                        transition: 0.4s;
+                        &:hover {
+                            color: #FF2D55;
+                        }
+                    }
+                    > ul.dropdown {                      
+                        position: absolute;
+                        top: 34px; //đây
+                        display: none;
+                        background: #ffffff;
+                        padding: 10px;
+                        box-shadow: 0px 3px 5px 1px rgb(194, 181, 181);
+                        > li {
+                            position: relative;
+                            padding: 8px;
+                            width: 150px;            
+                        }
+                    }
+                }
+                .more {
+                    position: relative;
+                    margin-right: 20px;
+                    a {
+                        &:hover {
+                            .fa-times {
+                                opacity: 1;
+                            }
+                            .fa-ellipsis-h {
+                                opacity: 0;
+                            }
+                        }
+                        i {
+                            font-size: 18px;
+                            transition: 0.4s;
+                        }
+                        .fa-times {
+                            position: absolute;
+                            top: 0px;
+                            left: 2px;
+                            opacity: 0;
+                            font-size: 20px;
+                        }
+                    }
+                }    
+            }
+            .upload {
+                a {
+                    color: #ffffff;
+                    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
+                    padding: 12px 30px;
+                    border-radius: 69px;
+                    font-size: 13px;
+                    font-family: 'SFProDisplay-Regular';
+                    font-weight: bold;
+                    transition: 0.4s;
+                    &:hover {
+                        box-shadow: 0px 2px 5px 0px #333333;
+                    }
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sliders {  
+    margin-bottom: 40px;
+    background-image: url(/dist/img/b9-bg.jpg);
+    background-size: cover;
+    .container {
+        .row2 {
+            position: relative;
+            padding: 30px 0px;
+            input {
+                display: none;
+            }
+            @for $i from 1 through 5 {
+                input:nth-child(#{$i}):checked ~ .slider-dots label:nth-child(#{$i}):after {
+                    opacity: 1;
+                } 
+                input:nth-child(#{$i}):checked ~ .items ul li:first-child {
+                    margin-left: -($i - 1) * 100%;
+                } 
+            }
+          
+            .button-left {
+                position: absolute;
+                z-index: 9999;
+                top: 150px;
+                left: -28px;
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            .button-right {
+                position: absolute;
+                z-index: 9999;
+                top: 150px;
+                right: -25px;
+                //box-shadow: 1px 1px 1px 1px rgb(212, 181, 181);
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            .items {
+                ul {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    margin: 0px -10px 0px;
+                    li {
+                        display: inline-block;
+                        width: 1145px/$col3;
+                        transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                        .item {                         
+                            padding: 8px;            
+                            .photo {
+                                margin-bottom: 11px;
+                                position: relative;
+                                cursor: pointer;
+                                &:hover {
+                                    .play {
+                                        opacity: 1;
+                                    }
+                                }
+                                img {
+                                    width: 100%;
+                                    border-radius: 8px;
+                                }
+                                .play {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    opacity: 0;
+                                    transition: 0.5s;
+                                    &::after {
+                                        content: '';
+                                        width: 100%;
+                                        height: 100%;
+                                        background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+                                        display: inline-block;
+                                        opacity: 0.4;
+                                        z-index: 9;
+                                        border-radius: 8px;
+                                    }
+                                    .far {
+                                        position: absolute;
+                                        z-index: 99;
+                                        color: #ffffff;
+                                        font-size: 60px;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%,-50%);
+                                    }
+                                }
+                            }
+                            .title {
+                                .name-song {
+                                    display: flex;
+                                    align-items: baseline;
+                                    margin-bottom: 3px;
+                                    span {
+                                        font-size: 12px;
+                                        font-family: 'SFProDisplay-Regular';
+                                        color: #878787;
+                                        margin-right: 3px;
+                                    }
+                                    a {
+                                        font-size: 14px;
+                                        font-family: 'SFProDisplay-Regular';
+                                        font-weight: bold;
+                                        color: #1b1b1b;
+                                        transition: 0.4s;
+                                        &:hover {
+                                            color: #ff0000;
+                                        }
+                                    }
+                                }
+                                a {
+                                    
+                                    p {
+                                        font-size: 14px;
+                                        color: #878787;
+                                        font-family: 'SFProDisplay-Regular';
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                                h6 {    
+                                    color: #ff0000;
+                                    font-size: 12px;
+                                    font-family: 'SFProDisplay-Regular';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .slider-dots {
+                margin-top: 20px;
+                label {
+                    width: 9px;
+                    height: 9px;
+                    background: rgb(230, 204, 204);
+                    border-radius: 50%;
+                    margin-right: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    &::after {
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        background: #333333;
+                        border-radius: 50%;
+                        opacity: 0;
+                        transition: 0.3s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.layout {
+    .container {
+        padding: 0 -15px;
+        .row {
+            margin: 0 -15px;
+            .main {
+                padding: 0 15px;
+                width: 70%;
+                .content-main {
+                    .top {
+                        margin-bottom: 10px;
+                        h5 {
+                            a {
+                                font-size: 19px;
+                                font-family: 'SFProDisplay-Regular';
+                                font-weight: bold;
+                                color: #FF2D55;
+                            }
+                        }
+                        span {
+                            font-size: 12px;
+                            color: #878787;
+                            font-family: 'SFProDisplay-Regular';
+                        }
+                    }
+                    .part1 {
+                        margin: 0 -10px;
+                        .item {
+                            padding: 0 10px;
+                            width: 100%/$col5;
+                            height: 238px;
+                            .song {
+                                .photo {
+                                    position: relative;
+                                    &:hover {
+                                        .effect {
+                                            opacity: 1;
+                                        }
+                                    }
+                                    img {
+                                        width: 100%;
+                                        border-radius: 3px;
+                                    }
+                                    .effect {
+                                        width: 100%;
+                                        height: 100%;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        opacity: 0;
+                                        cursor: pointer;
+                                        transition: 0.4s;
+                                        .fa-music {
+                                            position: absolute;
+                                            z-index: 999;
+                                            top: 50%;
+                                            left: 50%;
+                                            transform: translate(-50%,-50%);
+                                            font-size: 45px;
+                                            color: #ffffff;
+                                        }
+                                        &::after {
+                                            content: '';
+                                            z-index: 5;
+                                            width: 100%;
+                                            height: 100%;
+                                            display: inline-block;
+                                            background-image: linear-gradient(to right, #434343 0%, black 100%);
+                                            opacity: 0.3;   
+                                            border-radius: 3px;                     
+                                        }
+                                    }
+                                }
+                                h5 {
+                                    margin: 10px 0 5px;
+                                    a {
+                                        font-size: 14px;
+                                        font-family: 'SFProDisplay-Regular';
+                                        color: #1b1b1b;
+                                        transition: 0.4s;
+                                        &:hover {
+                                            color: #FF2D55;
+                                        }
+                                    }
+                                }
+                                p {
+                                    font-size: 12px;
+                                    font-family: 'SFProDisplay-Regular';
+                                    color: #878787;
+                                    cursor: pointer;
+                                    transition: 0.4s;
+                                    &:hover {
+                                        color: #FF2D55;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+                    //viết tiếp
+                }
+            }
+            .co-main {
+                width: 30%;
+                .content-co {
+                    //viêt
+                }
+            }
+        }
+    }
+}

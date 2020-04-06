@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; //phần nd bao gồm cả border
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    //mặc định là gạch chân
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+button {
+    border: none;
+    background: none;
+    outline: none;
+}
